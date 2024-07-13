@@ -3,9 +3,9 @@ import { inject, ref, type ModelRef, type Ref } from 'vue';
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator';
 import type { Rules } from 'async-validator';
 import type { Contact, Store } from '@/types';
-
 const {
-  state: { contacts }
+  state: { contacts },
+  getContacts
 } = inject('store') as Store;
 
 const props = defineProps({
@@ -43,7 +43,7 @@ const { pass, errorFields } = useAsyncValidator(contactInputs, rules);
 
 // Проверка на существование контакта с одинковым номером или email
 function isUserExists(value: string, property: keyof Contact, id?: string) {
-  return contacts?.some(
+  return getContacts.value?.some(
     (contact: Contact) => contact[property] === value && (id ? contact.id !== id : true)
   );
 }

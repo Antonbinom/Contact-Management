@@ -17,6 +17,9 @@ defineProps({
         <ContactItem :contact="contact" />
       </li>
     </TransitionGroup>
+    <div v-if="!contacts" class="text-xl fixed top-1/2 left-1/2 -translate-x-1/2 text-gray-500">
+      Нет контактов
+    </div>
   </div>
 </template>
 
