@@ -2,9 +2,10 @@ import { computed, reactive } from 'vue';
 import { useDebounceFn, useStorage } from '@vueuse/core';
 import type { Contact } from '@/types';
 
-// Замена хранилища
+// Замена хранилища. Для демонстрации возможностей vue 3.
 // Подключаем к приложению с помощью provide
 // Получаем в нужном нам компоненте с помощью inject
+
 const state: { contacts: Contact[]; searchValue: string } = reactive({
   // Используя VueUse - useStorage - создаем реактивное состояние связанное с localStorage.
   contacts: useStorage('contacts', []),
