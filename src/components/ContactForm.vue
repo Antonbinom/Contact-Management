@@ -1,12 +1,10 @@
 <script lang="ts" setup>
 import { inject, ref, type ModelRef, type Ref } from 'vue';
 import { useAsyncValidator } from '@vueuse/integrations/useAsyncValidator';
+import { validatorMessages } from '@/data/messages';
 import type { Rules } from 'async-validator';
 import type { Contact, Store } from '@/types';
-const {
-  state: { contacts },
-  getContacts
-} = inject('store') as Store;
+const { getContacts } = inject('store') as Store;
 
 const props = defineProps({
   title: String,
@@ -103,7 +101,7 @@ function onClose() {
             <span
               class="text-xs text-red-500 capitalize"
               :class="`${!isFormValid && errorFields?.name?.length ? 'visible' : 'invisible'}`"
-              >{{ errorFields?.name?.[0].message }}</span
+              >{{ validatorMessages[errorFields?.name?.[0].message] }}</span
             >
           </div>
           <div class="mb-2">
@@ -119,7 +117,7 @@ function onClose() {
             <span
               class="text-xs text-red-500 capitalize"
               :class="`${!isFormValid && errorFields?.number?.length ? 'visible' : 'invisible'}`"
-              >{{ errorFields?.number?.[0].message }}</span
+              >{{ validatorMessages[errorFields?.number?.[0].message] }}</span
             >
           </div>
           <div class="mb-6">
@@ -134,7 +132,7 @@ function onClose() {
             <span
               class="text-xs text-red-500 capitalize"
               :class="`${!isFormValid && errorFields?.email?.length ? 'visible' : 'invisible'}`"
-              >{{ errorFields?.email?.[0].message }}</span
+              >{{ validatorMessages[errorFields?.email?.[0].message] }}</span
             >
           </div>
           <div v-if="errorMessage" class="text-red-500 my-4 text-center">
