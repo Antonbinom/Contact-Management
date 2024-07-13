@@ -1,0 +1,24 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  font-weight: normal;
+}
+
+body {
+  height: 100vh;
+  color: var(--color-text);
+  background: var(--color-background);
+}
+
+#app {
+  height: 100%;
+  max-width: 1280px;
+  margin: 0 auto;
+  font-weight: normal;
+}
