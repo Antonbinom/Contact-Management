@@ -30,7 +30,7 @@ const onSave = () => {
     <span class="text-sm text-gray-500">{{ contact.number }}</span>
     <span class="text-sm text-gray-500">{{ contact.email }}</span>
   </div>
-  <div class="flex space-x-2">
+  <div class="flex space-x-2 max-sm:flex-col">
     <ContactForm
       v-model:contact-inputs="contactInputs"
       @on-save="onSave"

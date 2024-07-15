@@ -51,7 +51,7 @@ function onSave() {
   if (!pass.value) return (isFormValid.value = false);
   // Выводим сообщение о дубле телефона
   if (isUserExists(contactInputs.value.number, 'number', contactInputs.value.id)) {
-    return (errorMessage.value = 'Пользователь с таким номером уже существует');
+    return (errorMessage.value = 'Пользователь с таким телефоном уже существует');
   }
   // Выводим сообщение о дубле email
 
